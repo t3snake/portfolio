@@ -1,1 +1,124 @@
 @import 'tailwindcss';
+
+@font-face {
+    font-family: 'Charter';
+    font-style: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    src: url('/fonts/charter_regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Charter';
+    font-style: italic;
+    font-weight: normal;
+    font-stretch: normal;
+    src: url('/fonts/charter_italic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Charter';
+    font-style: normal;
+    font-weight: bold;
+    font-stretch: normal;
+    src: url('/fonts/charter_bold.woff2') format('woff2');
+}
+
+@font-face {
+font-family: 'Charter';
+font-style: italic;
+font-weight: bold;
+font-stretch: normal;
+src: url('/fonts/charter_bold_italic.woff2') format('woff2');
+}
+
+@theme {
+	--font-serif: 'Charter', Helvetica, Adwaita;
+
+	--text-body: 1.125rem;
+	--text-body--line-height: 1.45;
+
+	--text-title: clamp(1.75rem, 1.4rem + 1vw, 2.5rem);
+	--text-title--line-height: 1.15;
+
+	--text-section: 1.5rem;
+	--text-section--line-height: 1.25;
+
+	--text-subsection: 1.25rem;
+	--text-subsection--line-height: 1.3;
+
+	--container-reading: 34em;
+}
+
+@layer base {
+	html {
+		font-size: 100%;
+		font-kerning: normal;
+	}
+
+	body {
+		font-family: var(--font-serif);
+		font-size: var(--text-body);
+		font-weight: 400;
+		line-height: var(--text-body--line-height);
+		color: #202124;
+		background-color: #fff;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: 700;
+		line-height: 1.3;
+		text-wrap: balance;
+	}
+
+	h1 {
+		font-size: var(--text-title);
+		line-height: var(--text-title--line-height);
+	}
+
+	h2 {
+		font-size: var(--text-section);
+		line-height: var(--text-section--line-height);
+	}
+
+	h3 {
+		font-size: var(--text-subsection);
+		line-height: var(--text-subsection--line-height);
+	}
+
+	a {
+		text-decoration-line: underline;
+		text-underline-offset: 0.15em;
+	}
+
+	code, pre, kbd, samp {
+		font-family: var(--font-mono);
+	}
+}
+
+@layer components {
+	.reading {
+		max-inline-size: var(--container-reading);
+		overflow-wrap: anywhere;
+	}
+
+	.reading > * + * {
+		margin-block-start: 0.75em;
+	}
+
+	.reading > * + :where(h2, h3, h4, h5, h6) {
+		margin-block-start: 1.5em;
+	}
+
+	.reading :where(ul, ol) {
+		padding-inline-start: 1.5em;
+	}
+
+	.reading :where(ul) { list-style-type: disc; }
+	.reading :where(ol) { list-style-type: decimal; }
+
+	.reading :where(pre) {
+		overflow-x: auto;
+		overflow-wrap: normal;
+	}
+}
