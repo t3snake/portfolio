@@ -144,7 +144,7 @@ export const projects: Project[] = [
 		technologies: ["Unity", "C#"],
 		github_url: "https://github.com/t3snake/Practice-Shooter",
 		can_play_on_web: true,
-		playable_platform: "T3snake.dev"
+		playable_platform: "T3snake.dev",
 		playable_url: "https://t3snake.itch.io/blade-and-blast",
 	},
 	{
